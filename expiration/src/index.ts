@@ -2,6 +2,7 @@ import { OrderCreatedListener } from './events/listeners/order-created-listener'
 import { natsWrapper } from './nats-wrapper';
 
 const start = async () => {
+  console.log('Starting up the expiration service!');
   if (!process.env.NATS_URL) {
     throw new Error('NATS_URL key is not defined!');
   }
@@ -28,12 +29,9 @@ const start = async () => {
     process.on('SIGTERM', () => natsWrapper.client.close());
 
     new OrderCreatedListener(natsWrapper.client).listen();
-    
   } catch (err) {
     console.log(err);
   }
-
-  
 };
 
 start();
