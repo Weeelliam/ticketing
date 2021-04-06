@@ -5,8 +5,7 @@ const buildClient = ({ req }) => {
     // server side!
 
     return axios.create({
-      baseURL:
-        'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local',
+      baseURL: 'http://www.ticketing.simbatique.com/',
       headers: req.headers,
     });
   } else {
