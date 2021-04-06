@@ -1,4 +1,3 @@
-import useRequest from '../hooks/use-request';
 import Link from 'next/link';
 
 const LandingPage = ({ currentUser, tickets }) => {
